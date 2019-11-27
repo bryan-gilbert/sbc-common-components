@@ -63,7 +63,7 @@ export default class SbcHeader extends Vue {
 
   get showLogin () : boolean {
     let featureHide: any
-    let config: string = sessionStorage.getItem('AUTH_API_CONFIG') || '{}'
+    let config = sessionStorage.getItem('AUTH_API_CONFIG') || '{}'
     const authApiConfig = JSON.parse(config)
 
     if (authApiConfig) {
