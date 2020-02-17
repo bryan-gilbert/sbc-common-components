@@ -178,6 +178,7 @@ export default class SbcHeader extends NavigationMixin {
 
   private async mounted () {
     // Initialize LaunchDarkly flags and sync to session storage
+    console.debug('begin mount header with redirectOnLoginSuccess:', this.redirectOnLoginSuccess)
     const user = { 'key': 'sbc-common-components' }
     this.ldClient = initialize('5db9da115f58e008123cd783', user)
     this.ldClient.on('ready', () => {
@@ -189,6 +190,7 @@ export default class SbcHeader extends NavigationMixin {
       await this.syncUserSettings(lastUsedAccount)
       this.persistAndEmitAccountId()
     }
+    console.debug('end mount header this.currentAccount', this.currentAccount)
   }
 
   private persistAndEmitAccountId () {
